@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 load_dotenv() 
 # jbv
 
-auth_manager = SpotifyOAuth(client_id = '76868975d6304594b61e17963eb4983e', client_secret = 'cb7aa291d3d947a192eba10da7509ebe',
-redirect_uri = 'http://127.0.0.1:8888/callback', 
+auth_manager = SpotifyOAuth(client_id = os.getenv('client_id'), client_secret = os.getenv('client_secret'),
+redirect_uri = 'http://127.0.0.1:8888/callback',
 scope = "user-read-private")
 
 s = spotipy.Spotify(auth_manager = auth_manager)
