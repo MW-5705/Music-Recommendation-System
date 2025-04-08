@@ -4,7 +4,8 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv() 
+# jbv
 
 auth_manager = SpotifyOAuth(client_id = '76868975d6304594b61e17963eb4983e', client_secret = 'cb7aa291d3d947a192eba10da7509ebe',
 redirect_uri = 'http://127.0.0.1:8888/callback', 
