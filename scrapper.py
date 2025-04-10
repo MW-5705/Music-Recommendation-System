@@ -12,7 +12,8 @@ with open('My Spotify Library.csv', 'r') as data:
         i = i.split(',')
         i[0].replace(' ', '+')
         print(i[0].replace(' ', '+'), "   ", i[1].replace(' ', '+'))
-        url = f"https://www.last.fm/music/{i[1].replace(' ', '+')}/_/{i[0].replace(' ', '+')}"
+        url = f"https://www.last.fm/music/{i[1][1:-1].replace(' ', '+')}/_/{i[0][1:-1].replace(' ', '+')}"
+        print(url)
         page = urlopen(url)
 
         html_bytes = page.read()
@@ -24,12 +25,10 @@ with open('My Spotify Library.csv', 'r') as data:
             f.write(html)
         soup = BeautifulSoup(html, 'html.parser')
         a = ((soup.find_all('abbr', class_= 'intabbr js-abbreviated-counter')))
-        print(a)
+        # print(a)
         # os.remove('Data.html')
-        # listener = float(a[0].text[:-1])
-        # listener += listener
-        
-
-
+        listener = float(a[0].text[:-1])
+        listener += listener
+print(listeners)
 
 # print(html)
