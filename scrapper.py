@@ -17,6 +17,7 @@ scrobbles = 0
 bpm = 0
 n = 0
 
+genres = {"acoustic": 0, "classical":0, "dance":0,"electronic":0, "hiphop" : 0, "instrumental" : 0, "jazz" : 0,"pop" : 0, "rock" : 0 }
 
 def converter(text):
             if (text[-1] == 'K'):
@@ -72,6 +73,8 @@ with open('My Spotify Library (1).csv', 'r', encoding='utf-8') as data:
                 listeners_song= converter(listener_text)
                 bpm_song = int(response.text.split(',')[1])
                 bpm += bpm_song
+                genre = response.text.split(',')[0].lower().replace('-', '')
+                genres[genre] += 1
                 scrobbles += scrobbles_song
                 listeners += listeners_song
                 traits = [song,artist,scrobbles_song/listeners_song,int(response.text.split(',')[1]),response.text.split(',')[0]]
@@ -91,26 +94,33 @@ with open('My Spotify Library (1).csv', 'r', encoding='utf-8') as data:
 #         bpm += int(song[3])
 #         popularity += float(song[2])
 #         n = n+1
-    
-popularity = (scrobbles/listeners)/n
+#         genres[song[4].lower().replace('-', '')] += 1
+
+final = [genres[key] for key in genres]
+mode_genre = max(final)
+
+if listeners == 0 or n == 0:
+    popularity = 0
+else:
+    popularity = (scrobbles/listeners)/n
 # popularity = popularity/n
 bpm = bpm/n
-playlist_average = np.array([bpm, popularity])
+playlist_average = np.array([bpm, popularity, mode_genre])
 
 songs = []
     
 with open("spotifysongs_with_genre.csv", "r", encoding='utf-8') as dataset:
-    csv_reader = csv.reader(dataset)
+    csv_reader = csv.DictReader(dataset)
     next(csv_reader)
     for song in csv_reader:
-        songs.append([float(song[3]), float(song[2]), song[0], song[1]])
+        songs.append([float(song['Tempo']), float(song['Popularity']), genres[song['Genre'].lower().replace('-', '')], song['SongName'], song['ArtistName']])
     
 neighbours = []
 
 for song in songs:
-    point = np.array([song[0], song[1]])
+    point = np.array([song[0], song[1], song[2]])
     dist = euclidean(playlist_average, point)
-    neighbours.append([dist, song[2], song[3]])
+    neighbours.append([dist, song[3], song[4]])
 
 neighbours.sort(key = lambda x:x[0])
 
@@ -119,5 +129,6 @@ k = 5
 print(neighbours[:k])
 
 # print(songs)
+# print(genres)
 
 
