@@ -1,0 +1,20 @@
+Nonsense : ['Pop, 115\n', 22600000.0, 1200000.0]
+Co2 : ['Genre: Indie\nBPM: 105\n', 408600.0, 28400.0]
+Joota Japani : ['Hip-hop, 130\n', 71100.0, 773.0]
+Feels : ['Pop, 120\n', 58600.0, 685.0]
+Solace : ['Bollywood, 115\n', 19400.0, 202.0]
+Mehrma : ['Bollywood, 100\n', 22900.0, 261.0]
+Track Suit : ['Pop, 100\n', 16300.0, 280.0]
+Sona Kitna Sona Hai : ['Bollywood, 120\n', 892.0, 143.0]
+Sham : ['Bollywood, 100\n', 114500.0, 17100.0]
+Sanson Ki Mala : ['Qawwali, 68\n', 20000.0, 305.0]
+Scars To Your Beautiful : ['Pop, 120\n', 4200000.0, 587800.0]
+Renegades : ['Alternative, 122\n', 4500000.0, 553500.0]
+Glorious (feat. Skylar Grey) : ['Hip-hop, 144\n', 2800000.0, 363700.0]
+Bad Man : ['Hip-hop, 140\n', 32200.000000000004, 689.0]
+Battle Scars (with Guy Sebastian) : ['Hip-hop, 82\n', 470900.0, 78200.0]
+Another Love : ['Piano, 75\n', 15000000.0, 1200000.0]
+Twist : ['Bollywood, 120\n', 93600.0, 16300.0]
+Popularity : 12.4567148296412
+Listeners : 224907.66666666666
+Scrobbles : 2801610.6666666665
